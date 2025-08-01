@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+    --background: 0 0% 98%; /* light background */
+    --foreground: 240 5.3% 26.1%; /* dark text */
 
+    --card: 0 0% 100%; /* white card */
+    --card-foreground: 240 5.3% 26.1%; /* dark text */
+
+    --popover: 0 0% 100%; /* white popover */
+    --popover-foreground: 240 5.3% 26.1%; /* dark text */
+
+    --primary: 220 90% 56%; /* blue accent */
+    --primary-foreground: 0 0% 100%; /* white text */
+    --primary-glow: 220 100% 80%; /* lighter blue */
+
+    --secondary: 220 13% 91%; /* light gray */
+    --secondary-foreground: 240 5.3% 26.1%; /* dark text */
+
+    --muted: 220 13% 91%; /* light gray */
+    --muted-foreground: 220 5% 50%; /* medium gray */
+
+    --accent: 220 13% 91%; /* light gray */
+    --accent-foreground: 240 5.3% 26.1%; /* dark text */
+
+    --destructive: 0 84.2% 60.2%; /* red */
+    --destructive-foreground: 0 0% 100%; /* white text */
+
+    --border: 220 13% 91%; /* light border */
+    --input: 220 13% 91%; /* light input */
+    --ring: 220 90% 56%; /* blue ring */
+
+    --radius: 0.75rem;
+
+    /* Video Chat specific tokens */
+    --chat-user: 220 90% 56%; /* blue */
+    --chat-user-foreground: 0 0% 100%; /* white */
+    --chat-assistant: 220 13% 91%; /* light gray */
+    --chat-assistant-foreground: 240 5.3% 26.1%; /* dark text */
+    --upload-zone: 220 13% 91%; /* light gray */
+    --upload-zone-hover: 220 13% 80%; /* slightly darker gray */
+    --input-container: 220 13% 91%; /* light gray */
+    --input-container-hover: 220 13% 80%; /* slightly darker gray */
+    --gradient-primary: linear-gradient(
+        135deg,
+        hsl(220 90% 56%),
+        hsl(220 100% 80%)
+    );
+    --shadow-glow: 0 0 40px hsl(220 90% 56% / 0.15);
+
+    --sidebar-background: 220 13% 91%; /* light gray */
+
+    --sidebar-foreground: 240 5.3% 26.1%; /* dark text */
+
+    --sidebar-primary: 0 0% 98%; /* light background */
+
+    --sidebar-primary-foreground: 240 5.3% 26.1%; /* dark text */
+
+    --sidebar-accent: 0 0% 100%; /* white */
+
+    --sidebar-accent-foreground: 240 5.3% 26.1%; /* dark text */
+
+    --sidebar-border: 220 13% 91%; /* light border */
+
+    --sidebar-ring: 220 90% 56%; /* blue ring */
+}
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-inter);
+    --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    @apply bg-background text-foreground;
 }

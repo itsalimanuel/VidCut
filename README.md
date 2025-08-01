@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 VidCut
 
-## Getting Started
+**VidCut** is an open-source, AI-powered video editing tool that lets you upload and edit videos directly in your browser using natural language prompts. It uses **FFmpeg** under the hood and **OpenAI GPT-4o** to generate smart video editing commands — no manual terminal work needed.
 
-First, run the development server:
+> ✂️ Compress, trim, cut, or remove watermarks from your videos — just tell VidCut what you want.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🎥 **Drag-and-drop video upload**
+- 💬 **AI prompt-based editing** (e.g., “cut from 00:10 to 00:45”, “remove watermark”)
+- ⚙️ **Auto-generated FFmpeg commands** via OpenAI GPT
+- 💾 **Download processed videos instantly** in your browser
+- 🧩 Fully **open-source** and extendable
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧠 How It Works
 
-To learn more about Next.js, take a look at the following resources:
+1. Upload a `.mp4` video file.
+2. Type a natural language prompt (e.g. "compress to 720p", "remove watermark in top right corner").
+3. VidCut sends the prompt to OpenAI, which returns an FFmpeg command.
+4. The command runs on the server.
+5. The edited video is streamed back in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤖 Example Prompts
 
-## Deploy on Vercel
+- “Trim from 0:10 to 0:45”
+- “Compress to 720p under 2MB”
+- “Remove watermark in top right”
+- “Crop to square and remove audio”
+- “Extract audio only”
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💡 Roadmap
+
+- [ ] Add image input support
+- [ ] Multiple export formats (GIF, WebM, MP3)
+- [ ] Save/share prompt history
+- [ ] Offline FFmpeg mode via WASM
+
+---
+
+## 🧠 Contributing
+
+Pull requests and issues are welcome!
+If you’d like to improve FFmpeg prompts, UI, or processing, feel free to open a PR.
+
+---
+
+## 🧑‍💻 Author
+
+Made with ❤️ by [Ali Manuel](https://github.com/itsalimanuel)
