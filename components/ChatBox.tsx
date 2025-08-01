@@ -94,9 +94,7 @@ const Index = () => {
               <Video className="w-6 h-6 text-primary-foreground" />
             </motion.div>
             <div>
-              <h1 className="text-xl font-semibold text-foreground">
-                Video Chat AI
-              </h1>
+              <h1 className="text-xl font-semibold text-foreground">VidCut</h1>
               <p className="text-sm text-muted-foreground">
                 Upload a video and chat with AI about it
               </p>
@@ -125,10 +123,10 @@ const Index = () => {
                   <Video className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-lg font-medium text-foreground mb-2">
-                  Ready to analyze your video
+                  Ready to Edit your video
                 </h3>
                 <p className="text-muted-foreground">
-                  Upload a video file and start asking questions about it.
+                  Upload a video file and start editing it.
                 </p>
               </div>
             </motion.div>

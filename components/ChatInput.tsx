@@ -42,7 +42,7 @@ export function ChatInput({ onSend, loading, disabled }: ChatInputProps) {
                     placeholder={
                       disabled
                         ? "Upload a video to start..."
-                        : "Ask Lovable to create a web app that..."
+                        : "Ask VidCut to edit your video..."
                     }
                     className="min-h-[60px] max-h-[120px] resize-none bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground p-0"
                     disabled={disabled || loading}
@@ -51,8 +51,9 @@ export function ChatInput({ onSend, loading, disabled }: ChatInputProps) {
                 <div className="flex items-center gap-2">
                   <Button
                     onClick={handleSend}
+                    variant={"default"}
                     disabled={!message.trim() || loading || disabled}
-                    className="h-10 w-10 p-0 bg-gradient-to-r from-primary to-primary-glow hover:shadow-[var(--shadow-glow)] transition-all duration-200 rounded-xl"
+                    className="h-10 w-10 p-0 bg-black text-white hover:shadow-[var(--shadow-glow)] transition-all duration-200 rounded-xl"
                   >
                     {loading ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
