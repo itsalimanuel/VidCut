@@ -1,9 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Upload, Video, X } from "lucide-react";
+import { FileVideoCameraIcon, Upload, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { Badge } from "./ui/badge";
+import { Card, CardHeader, CardContent } from "@/components/ui/card"; // ✅ Make sure you're importing correctly
 
 interface VideoUploadProps {
   onVideoSelect: (file: File | null) => void;
@@ -96,36 +98,42 @@ export function VideoUpload({
             </div>
           </motion.div>
         ) : (
-          <motion.div
-            key="file-info"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.25 }}
-            className="relative bg-card border border-border rounded-xl p-4 shadow-sm"
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Video className="w-6 h-6 text-primary" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-foreground truncate">
-                  {selectedVideo.name}
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  {(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB
-                </p>
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={clearVideo}
-                className="text-muted-foreground hover:text-destructive"
-              >
-                <X className="w-4 h-4" />
-              </Button>
-            </div>
-          </motion.div>
+          <Card key="file-info" className="border border-border shadow-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.25 }}
+            >
+              <CardHeader className="pb-0">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <FileVideoCameraIcon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-foreground truncate">
+                        {selectedVideo.name}
+                      </p>
+                      <Badge className="text-xs" variant="destructive">
+                        {(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB
+                      </Badge>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="sm" onClick={clearVideo}>
+                    <X className="w-4 h-4" />
+                  </Button>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <video
+                  src={URL.createObjectURL(selectedVideo)}
+                  controls
+                  className="w-full rounded-lg"
+                />
+              </CardContent>
+            </motion.div>
+          </Card>
         )}
       </AnimatePresence>
     </div>

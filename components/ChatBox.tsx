@@ -6,7 +6,7 @@ import { ChatInput } from "@/components/ChatInput";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Video, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Image from "next/image";
 interface Message {
   role: "user" | "assistant";
   message: string;
@@ -88,13 +88,20 @@ const Index = () => {
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center gap-3">
             <motion.div
-              className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center"
+              className="w-10 h-10 rounded-lg animate-bounce flex items-center justify-center"
               whileHover={{ scale: 1.1 }}
             >
-              <Video className="w-6 h-6 text-primary-foreground" />
+              <Image
+                src="/ai.png.png"
+                alt="VidCut Logo"
+                width={40}
+                height={40}
+              />
             </motion.div>
             <div>
-              <h1 className="text-xl font-semibold text-foreground">VidCut</h1>
+              <h1 className="text-xl font-semibold font-mono uppercase tracking-widest text-foreground">
+                VidCut
+              </h1>
               <p className="text-sm text-muted-foreground">
                 Upload a video and chat with AI about it
               </p>

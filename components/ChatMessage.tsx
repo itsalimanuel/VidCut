@@ -2,6 +2,8 @@
 
 import { User, Bot } from "lucide-react";
 import { motion } from "framer-motion";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Badge } from "./ui/badge";
 
 interface ChatMessageProps {
   role: "user" | "assistant";
@@ -37,7 +39,16 @@ export function ChatMessage({
         className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0
         ${isUser ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
       >
-        {isUser ? <User className="w-5 h-5" /> : <Bot className="w-5 h-5" />}
+        {isUser ? (
+          <Avatar>
+            <AvatarFallback>ME</AvatarFallback>
+          </Avatar>
+        ) : (
+          <Avatar>
+            <AvatarImage src={"/ai.png.png"} />
+            <AvatarFallback>AI</AvatarFallback>
+          </Avatar>
+        )}
       </div>
 
       <div className={`flex-1 space-y-3 ${isUser ? "text-right" : ""}`}>
@@ -46,10 +57,10 @@ export function ChatMessage({
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.05 }}
           className={`
-            inline-block max-w-[85%] px-4 py-3 rounded-2xl text-sm leading-relaxed shadow-md
+            inline-block max-w-[85%] px-4 py-3 rounded-md text-sm leading-relaxed shadow-md
             ${
               isUser
-                ? "bg-primary text-black rounded-br-md"
+                ? "bg-primary text-white  rounded-br-md"
                 : "bg-muted border border-border text-foreground rounded-bl-md"
             }
           `}
@@ -80,9 +91,14 @@ export function ChatMessage({
                 Your browser does not support the video tag.
               </video>
               {typeof size === "number" && (
-                <p className="text-xs text-muted-foreground text-right pr-1">
-                  File size: {formatSize(size)}
-                </p>
+                <div className="ml-auto w-fit">
+                  <Badge
+                    variant={"outline"}
+                    className="text-xs bg-green-400  text-right pr-1"
+                  >
+                    File size: {formatSize(size)}
+                  </Badge>
+                </div>
               )}
             </div>
           </motion.div>
